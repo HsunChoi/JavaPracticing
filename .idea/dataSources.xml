@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="895451599">
+    <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="f6180803-63de-4579-a0af-9daa7e62f305">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5433/postgres</jdbc-url>
+      <libraries>
+        <library>
+          <url>file:///Library/PostgreSQL/pgJDBC/postgresql-9.4-1203.jdbc4.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>

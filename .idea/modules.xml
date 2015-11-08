@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/com/xun/java/practing/app/CS561_HOMEWORK1/CS561_HOMEWORK1.iml" filepath="$PROJECT_DIR$/src/com/xun/java/practing/app/CS561_HOMEWORK1/CS561_HOMEWORK1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/com/xun/java/practing/app/GenerConcord/GenerConcord.iml" filepath="$PROJECT_DIR$/src/com/xun/java/practing/app/GenerConcord/GenerConcord.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaPracticing.iml" filepath="$PROJECT_DIR$/JavaPracticing.iml" />
+    </modules>
+  </component>
+</project>

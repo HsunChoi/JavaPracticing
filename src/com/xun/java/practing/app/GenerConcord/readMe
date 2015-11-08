@@ -1,0 +1,17 @@
+****************
+****************
+****************
+
+The development Tool is Intellij IDEA 13.1
+
+**********************************************
+
+ * the output will be words followed by several digits, the first digit will be the numbers that the word's occurrence
+ * the following digits will be the line numbers where the word occurs.
+ *
+ * Please do not forget change the path of the file
+
+************************************************
+
+ Thanks
+ xun

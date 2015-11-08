@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL - postgres@localhost" uuid="f6180803-63de-4579-a0af-9daa7e62f305">
+    <database-info product="PostgreSQL" version="9.4.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1203)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <schema name="public" catalog="postgres"/>
+    <table name="demo" schema="public" catalog="postgres" type="TABLE">
+      <column name="demo_column" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="demo_column_2" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="demo_column_3" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="demo_pkey" columns="demo_column,demo_column_2"/>
+    </table>
+  </data-source>
+</component>
