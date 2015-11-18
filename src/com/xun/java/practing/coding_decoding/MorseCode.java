@@ -7,6 +7,9 @@ import java.util.Map;
  * Created by cuixun on 11/11/15.
  */
 public class MorseCode {
+    /**
+     * Morse code, numbers from 0 - 9
+     */
     static String[] numMorse = {"-----", "*----", "**---", "***--", "****-", "****",
             "-****", "--***", "---**", "----*"};
 

@@ -7,7 +7,7 @@ package com.xun.java.practing.coding_decoding;
  */
 public class Client {
     public static void main(String[]args){
-        Coding.romaCoding("I miss you");
-        Decoding.romaDecoding("----*/**---/-****/**---/****/***--/***--/*----/****-/*----/****/***--/-****/***--/-****/***--/");
+        String code = Coding.romaCoding("I miss you");
+        Decoding.romaDecoding(code);
     }
 }
