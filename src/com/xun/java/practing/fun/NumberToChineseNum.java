@@ -1,5 +1,9 @@
 package com.xun.java.practing.fun;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Created by cuixun on 11/26/15.
  */
@@ -13,10 +17,22 @@ public class NumberToChineseNum {
 
     public static void main(String[]args){
         long x = System.currentTimeMillis();
-        for(int i = 1; i <= 10000; i++){
-            System.out.format("第" + convertNumToChinese(i) + "遍"
-                    + ": " + "世界和平");
-            System.out.println();
+        String pre = convertNumToChinese(1);
+        System.out.println("第" + pre + "遍" + ": 世界和平");
+        String cur;
+        for(int i = 2; i <= 100000; i++){
+
+            if((i - 1) % 10 != 0 && (i - 1) % 10 != 9){
+                cur = pre.substring(0, pre.length() - 1) + nums[i % 10];
+            }else{
+                cur = convertNumToChinese(i);
+            }
+            pre = cur;
+            System.out.println("第" + cur + "遍" + ": 世界和平");
+
+
+            //System.out.println("第" + convertNumToChinese(i) + "遍" + ": 世界和平");
+
         }
         long y = System.currentTimeMillis();
         System.out.println(y - x);
@@ -50,7 +66,6 @@ public class NumberToChineseNum {
         }
         return res;
     }
-
 
 
 }
