@@ -6,6 +6,8 @@ import java.util.Set;
 
 /**
  * Created by cuixun on 11/26/15.
+ * Input n
+ * Out Chinese from 1 to n
  */
 public class NumberToChineseNum {
 
