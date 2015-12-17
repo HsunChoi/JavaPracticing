@@ -1,5 +1,7 @@
 package com.xun.java.practing.careerup;
 
+import org.junit.Test;
+
 /**
  * Created by cuixun on 11/17/15.
  */
