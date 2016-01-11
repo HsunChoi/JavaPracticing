@@ -23,6 +23,13 @@ public class Xun {
         }
         System.out.println();
     }
+
+    public static void print(String[] strings){
+        for(int i = 0; i < strings.length; i++){
+            System.out.print(strings[i] + ",");
+        }
+        System.out.println();
+    }
     /**
      * print the elements form 0 to end;
      * @param a
