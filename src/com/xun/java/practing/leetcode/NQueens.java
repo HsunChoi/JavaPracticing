@@ -21,7 +21,7 @@ public class NQueens {
         List<List<Integer>> lists = new ArrayList<>();
         List<Integer> list = new ArrayList<>();
         placeQueens(n, 0, lists, list);
-
+        boolean[][] x = new boolean[1][1];
         return lists;
     }
 

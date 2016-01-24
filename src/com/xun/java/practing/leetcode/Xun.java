@@ -1,6 +1,8 @@
 package com.xun.java.practing.leetcode;
 
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by cuixun on 5/22/15.
@@ -99,4 +101,21 @@ public class Xun {
         }
         System.out.println();
     }
+
+    public static void printHashmap(Map<Integer, Character> map){
+        for(Object key : map.keySet()){
+            System.out.print(key + ":" + map.get(key) + "  ");
+        }
+        System.out.println();
+    }
+
+    public static void printTreemap(TreeMap<Integer, Character> map){
+        for(Object key : map.keySet()){
+            System.out.print(key + ":" + map.get(key) + "  ");
+        }
+        System.out.println();
+    }
+
+
+
 }
