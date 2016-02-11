@@ -16,7 +16,8 @@ public class GenerConcord {
         File file = new File(filePath);
         ConcordGenerator c = new ConcordGenerator(file);
         HashMap<String, List<Integer>> map = c.generateFile(c.file);
-        c.out(map);
+        HashMap<String, List<Integer>> map1 = c.generateFile();
+        c.out(map1);
         c.write(map);
     }
 

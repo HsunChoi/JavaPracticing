@@ -1,8 +1,5 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by cuixun on 5/13/15.
@@ -18,6 +15,12 @@ public class ConcordGenerator {
         this.file = file;
     }
 
+
+    /**
+     * not use regular expression
+     * @param file
+     * @return
+     */
     HashMap generateFile(File file) {
         HashMap<String, List<Integer>> map = new HashMap<String, List<Integer>>();
         int lineCount = 1;
@@ -28,11 +31,10 @@ public class ConcordGenerator {
                 int i = 0;
                 int j;
                 for (j = 0; j < s.length(); j++) {
-                    if(j > 0 && j < s.length() - 1 && s.charAt(j) == '.' && Character.isDigit(s.charAt(j - 1))
-                            && Character.isDigit(s.charAt(j + 1))){
+                    if (j > 0 && j < s.length() - 1 && s.charAt(j) == '.' && Character.isDigit(s.charAt(j - 1))
+                            && Character.isDigit(s.charAt(j + 1))) {
 
-                    }
-                    else if (!Character.isLetterOrDigit(s.charAt(j))) {
+                    } else if (!Character.isLetterOrDigit(s.charAt(j))) {
                         String tmp = s.substring(i, j);
                         if (tmp != "" && !tmp.isEmpty()) {
                             if (map.containsKey(tmp)) {
@@ -51,7 +53,7 @@ public class ConcordGenerator {
                     }
                 }
                 //add the last word in the map
-                if(i < j) {
+                if (i < j) {
                     String tmp = s.substring(i, j);
                     if (map.containsKey(tmp)) {
                         List<Integer> list = map.get(tmp);
@@ -73,6 +75,54 @@ public class ConcordGenerator {
         }
         return map;
     }
+
+
+    /**
+     * Use regular expression
+     * @return
+     */
+    HashMap generateFile() {
+        HashMap<String, List<Integer>> map = new HashMap<String, List<Integer>>();
+        if (file == null) {
+            return null;
+        }
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(this.file));
+            String s = reader.readLine();
+            String[] arr;
+            int line = 1;
+            while (s != null) {
+                arr = s.split("[ ,.:<>\\[\\]!?\"@#$%^&*()]");
+                putIntoMap(map, arr, line);
+                line++;
+                s = reader.readLine();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return map;
+    }
+
+    void putIntoMap(Map<String, List<Integer>> map, String[] a, int line) {
+        for (String s : a) {
+            if (s != null && s.length() != 0) {
+                if (map.containsKey(s)) {
+                    List<Integer> list = map.get(s);
+                    list.set(0, list.get(0) + 1);
+                    list.add(line);
+                    map.put(s, list);
+                } else {
+                    List<Integer> list = new LinkedList<Integer>();
+                    list.add(1);
+                    list.add(line);
+                    map.put(s, list);
+                }
+            }
+        }
+    }
+
 
     /**
      * print the result directly
@@ -120,7 +170,7 @@ public class ConcordGenerator {
             }
         } catch (Exception e) {
             throw new IllegalArgumentException("Can not write");
-        }finally {
+        } finally {
             if (writer != null)
                 try {
                     writer.close();
