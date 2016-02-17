@@ -1,5 +1,6 @@
 package com.xun.java.practing.leetcode;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +10,12 @@ import java.util.List;
 public class LetterCombinationOfPhoneNumber {
 
     public static void main(String[]args){
-
-        List<String> list = letterCombinations("641");
+String num = "1641";
+        List<String> list = letterCombinations(num);
+        List<String> list1 = letterCombinations1(num);
 
         Xun.printString(list);
+        Xun.printString(list1);
     }
 
     /**
@@ -51,6 +54,27 @@ public class LetterCombinationOfPhoneNumber {
             //list = cur;
         }
 
+        return list;
+    }
+
+    public static List<String> letterCombinations1(String digits) {
+        String[] nums = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        List<String> list = new ArrayList<String>();
+        if(digits == null || digits.length() == 0){
+            return list;
+        }
+        //list.add("");
+        for(int i = 0; i < digits.length(); i++){
+            int digit = digits.charAt(i) - '0';
+            List<String> curList = new ArrayList<String>();
+            char[] tmp = nums[digit].toCharArray();
+            for(String s : list){
+                for(char c : tmp){
+                    curList.add(s + c);
+                }
+            }
+            list = curList;
+        }
         return list;
     }
 }

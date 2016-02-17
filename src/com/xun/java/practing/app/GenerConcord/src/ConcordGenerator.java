@@ -92,7 +92,7 @@ public class ConcordGenerator {
             String[] arr;
             int line = 1;
             while (s != null) {
-                arr = s.split("[ ,.:<>\\[\\]!?\"@#$%^&*()]");
+                arr = s.split("[ ,.:<>\"\\W!?@#$%&*()]");
                 putIntoMap(map, arr, line);
                 line++;
                 s = reader.readLine();

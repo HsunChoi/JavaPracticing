@@ -5,21 +5,24 @@ package com.xun.java.practing.leetcode;
  */
 public class Strstr {
     public static void main(String[]args){
-        String str = "zacjndjakndijkncoq djnoiq asdnoeikms";
-        String target = "jndj";
-        System.out.println(strstr(str, target));
+        String str = "mississippi";
+        String target = "pi";
+        System.out.println(strStr(str, target));
+        System.out.println(str.indexOf(target));
 
     }
-    public static int strstr(String str, String target){
-        for(int i = 0; i < str.length(); i++){
-            for(int j = i; j < str.length(); j++){
-                if(j == target.length()){
-                    return i;
-                }
-                if(str.charAt(i + j) != target.charAt(j)){
-                    break;
-                }
-
+    public static int strStr(String haystack, String needle) {
+        if(haystack == null){
+            return -1;
+        }
+        if(haystack.equals(needle)){
+            return 0;
+        }
+        int x = haystack.length();
+        int y = needle.length();
+        for(int i = 0; i < x - y + 1; i++){
+            if(needle.equals(haystack.substring(i, i + y))){
+                return i;
             }
         }
         return -1;

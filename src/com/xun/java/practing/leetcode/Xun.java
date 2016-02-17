@@ -94,7 +94,8 @@ public class Xun {
         }
     }
 
-    public static void printListNodes(ListNode head){
+    public static void printListNodes(ListNode node){
+        ListNode head = node;
         while(head != null){
             System.out.print(head.val + " ");
             head = head.next;
