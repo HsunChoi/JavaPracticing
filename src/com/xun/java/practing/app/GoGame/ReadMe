@@ -1,0 +1,29 @@
+Algorithms Course project
+
+
+Go is an adversarial game with the objective of having surrounded a larger total area of the board with one's stones
+than the opponent. As the game progresses, the players place stones which map out formations and potential territories.
+Areas are contested in battles between opposing stones, which are often complex and may result in the expansion,
+reduction, or wholesale capture and loss of the contested area.
+
+
+The four liberties (adjacent empty points) of a single black stone (A), as White reduces those liberties by
+one (B, C, and D). When Black has only one liberty left (D), that stone is "in atari".[13] White may capture
+that stone (remove from board) with a play on its last liberty (at D-1).
+A basic principle of Go is that stones must have at least one "liberty" (Chinese: 氣) to remain on the board.
+A "liberty" is an open "point" (intersection) next to a stone. An enclosed liberty (or liberties) is called
+an "eye" (眼), and a group of stones with at least two separate eyes is said to be unconditionally "alive".
+Such groups cannot be captured, even if surrounded.[15] "Dead" stones are stones that are surrounded and in
+groups with poor shape (one or no eyes), and thus cannot resist eventual capture.
+
+The general strategy of Go is to expand one's territory where possible, attack the opponent's weak
+groups (groups that can possibly be killed), and always stay mindful of the "life status" of one's own
+groups.[17][18] The liberties of groups are countable. Situations where two opposing groups must capture
+the other to live are called capturing races (semeai 攻め合い in Japanese).[19] In a capturing race, the group
+ with more liberties (and/or better "shape") will ultimately be able to capture the opponent's stones.[19][20]
+ Capturing races and questions of life and death are examples of what makes Go challenging.
+
+The game ends when both players pass, and players pass when there are no more profitable moves to be made.
+The game is then scored: The player with the greater number of controlled (surrounded) points, factoring in the
+number of captured stones and komi, wins the game.[22] Games may also be won by resignation, for example if
+a player has lost a large group of stones.
