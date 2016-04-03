@@ -27,6 +27,13 @@ public class SlidingWindowsMaximum {
             pq.offer(nums[i]);
         }
         max[0] = pq.peek();
+        Comparator<MaxiSquare> c = new Comparator<MaxiSquare>() {
+            @Override
+            public int compare(MaxiSquare o1, MaxiSquare o2) {
+                return 0;
+            }
+
+        };
         int index = 1;
         for(int i = k; i < nums.length; i++){
             pq.remove(nums[i - k]);

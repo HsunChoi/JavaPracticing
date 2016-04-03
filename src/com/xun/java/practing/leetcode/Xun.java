@@ -1,5 +1,7 @@
 package com.xun.java.practing.leetcode;
+import com.xun.java.practing.careerup.Amazon.CirNode;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -79,6 +81,7 @@ public class Xun {
         }
     }
 
+
     public static void print(char[] a){
         for(int i = 0; i < a.length; i++){
             System.out.print(a[i] + " ");
@@ -118,5 +121,42 @@ public class Xun {
     }
 
 
+    public static void printCircularLinkedList(CirNode head){
+        if(head == null){
+            System.out.println("null");
+        }
+        CirNode p = head;
+        do{
+            System.out.print(p.val + " ");
+            p = p.next;
+        }while(p != head);
+        System.out.println();
+    }
+
+    public static void printTree(TreeNode node){
+        List<TreeNode> list = new LinkedList<>();
+        list.add(node);
+        int count = 1;
+
+        while(count != 0){
+            count = 0;
+            List<TreeNode> nexList = new LinkedList<>();
+            for(TreeNode n : list){
+                System.out.print(n + " ");
+                nexList.add(n.left);
+                nexList.add(n.right);
+                if(n.left != null){
+                    count++;
+                }
+                if(n.right != null){
+                    count++;
+                }
+            }
+            list = nexList;
+            System.out.println();
+
+        }
+
+    }
 
 }
