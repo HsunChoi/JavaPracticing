@@ -10,103 +10,47 @@ import java.util.List;
 public class ThreeSumCloset {
     public static void main(String[]args){
         int[] a = {1, 3, 1, 5, 4};
-        List<Integer> list = threeSumCloset(a, 4);
-        for(int i:list){
-            System.out.print(i + " ");
-        }
-    }
-
-    /**
-     * Some changes made from LeeCode
-     * @param a
-     * @param target
-     * @return
-     */
-    public static List<Integer> threeSumCloset(int[] a, int target){
-        Arrays.sort(a);
-        List<Integer> result = findThreeSum(a, target);
-        if(result != null && result.size() != 0){
-            return result;
-        }else{
-           return threeSumCloset(a, target + 1);
-        }
-
+        int res = threeSumClosest(a, 4);
+            System.out.print(res + " ");
 
     }
 
-    public static List<Integer> findThreeSum(int[] a, int sum){
-        List<Integer> list = new LinkedList<Integer>();
-        if(a.length < 3){
-            return null;
+
+    public static int threeSumClosest(int[] nums, int target) {
+        if(nums == null || nums.length == 0){
+            return 0;
         }
-        for(int i = 0; i < a.length; i++){
-            for(int j = i + 1, k = a.length - 1; j < k;){
-                if(a[i] + a[j] + a[k] == sum){
-                    list.add(a[i]);
-                    list.add(a[j]);
-                    list.add(a[k]);
-                    return list;
-                }else if(a[i] + a[j] + a[k] < sum){
-                    j++;
-                }else{
-                    k--;
+        int diff = Integer.MAX_VALUE;
+        int res = 0;
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] - target > diff){
+                return res;
+            }
+            for(int j = i + 1, k = nums.length - 1; j < k;){
+                int sum = nums[i] + nums[j] + nums[k];
+                if(sum == target){
+                    return sum;
                 }
-            }
-        }
-        if(list != null && list.size() != 0) {
-            System.out.println(sum);
-        }
-
-            return list;
-    }
-
-    /**
-     * Original solution in LeetCode, accepted.
-     */
-    class Solution {
-        public int threeSumClosest(int[] a, int target) {
-            Arrays.sort(a);
-            if(isFindThreeSum(a, target)){
-                return target;
-            }
-            int diff = 1;
-            boolean isFind = false;
-            while(!isFind){
-                boolean left = isFindThreeSum(a, target - diff);
-                boolean right = isFindThreeSum(a, target + diff);
-                if(left){
-                    return target - diff;
-                }
-                if(right){
-                    return target + diff;
-                }
-                isFind = left || right;
-                diff++;
-            }
-            return Integer.MAX_VALUE;
-        }
-
-        public boolean isFindThreeSum(int[] a, int sum){
-            List<Integer> list = new LinkedList<Integer>();
-            if(a.length < 3){
-                return false;
-            }
-            for(int i = 0; i < a.length; i++){
-                for(int j = i + 1, k = a.length - 1; j < k;){
-                    if(a[i] + a[j] + a[k] == sum){
-
-                        return true;
-                    }else if(a[i] + a[j] + a[k] < sum){
+                int tmpDiff = Math.abs(sum - target);
+                res = tmpDiff < diff ? sum : res;
+                diff = Math.min(tmpDiff, diff);
+                int left = nums[j];
+                int right = nums[k];
+                if(sum < target){
+                    while(j < nums.length && left == nums[j]){
                         j++;
-                    }else{
+                    }
+                }else{
+                    while(k >= 0 && right == nums[k]){
                         k--;
                     }
                 }
             }
-
-            return false;
         }
+        return res;
     }
+
 
 
 }
