@@ -26,9 +26,15 @@ public class LongestIncreasingPathInMatrix {
                 {139,138,137,136,135,134,133,132,131,130},
                 {0,0,0,0,0,0,0,0,0,0}};
 
+        long x = System.nanoTime();
         System.out.println(longestIncreasingPathWithCheck(matrix));
+        long y = System.nanoTime();
+        System.out.println((y - x) / 1000 + "\n\n");
 
+        long x1 = System.nanoTime();
         System.out.println(longestIncreasingPathWithoutCheck((matrix)));
+        long y1 = System.nanoTime();
+        System.out.println((y1 - x1) / 1000);
 
     }
 
@@ -143,6 +149,7 @@ public class LongestIncreasingPathInMatrix {
 
         int x = Math.max(length1, length2);
         int y = Math.max(length3, length4);
+
         cache[row][col] = Math.max(x, y) + 1;
         checkBox[row][col] = false;
 

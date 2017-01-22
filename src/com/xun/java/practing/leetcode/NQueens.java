@@ -1,6 +1,7 @@
 package com.xun.java.practing.leetcode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,49 +10,70 @@ import java.util.List;
 public class NQueens {
     public static void main(String[]args){
         int n = 8;
-        List<List<Integer>> queens = nQueens(n);
-        Xun.printList(queens);
-        System.out.println(queens.size());
-        for(List<Integer> list : queens){
-            printAsMatrix(list);
+        List<List<String>> queens = solveNQueens(n);
+        Xun.printStringMatrix(queens);
+    }
+
+    public static List<List<String>> solveNQueens(int n) {
+
+        List<Integer> list = new LinkedList<>();
+        List<List<Integer>> lists = new LinkedList<>();
+        int row = 0;
+        getNQueensLists(lists, list, n);
+
+        List<List<String>> resLists = convertLists(lists, n);
+        return resLists;
+
+    }
+
+
+
+    static void getNQueensLists(List<List<Integer>> lists, List<Integer> list, int n){
+        if(list.size() > n){
+            return;
         }
-    }
-
-    static List<List<Integer>> nQueens(int n){
-        List<List<Integer>> lists = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        placeQueens(n, 0, lists, list);
-        boolean[][] x = new boolean[1][1];
-        return lists;
-    }
-
-    static void placeQueens(int n, int row, List<List<Integer>> lists, List<Integer> list){
-        if(row == n){
-            /**
-             * no need if here
-             */
-            if(!lists.contains(list)) {
-                lists.add(list);
-            }
+        if(list.size() == n){
+            lists.add(list);
             return;
         }
         for(int i = 0; i < n; i++){
-            if(isSafe(row, i, list)){
-                List<Integer> nlist = new ArrayList<>(list);
-                nlist.add(i);
-                placeQueens(n, row + 1, lists, nlist);
+            if(isValid(list, i)){
+                List<Integer> nList = new LinkedList(list);
+                nList.add(i);
+                getNQueensLists(lists, nList, n);
             }
         }
-        return;
+
     }
 
-    static boolean isSafe(int row, int col, List<Integer> list){
+    static boolean isValid(List<Integer> list, int col){
+        int row = list.size();
         for(int i = 0; i < list.size(); i++){
-            if(row == i || col == list.get(i) || Math.abs(row - i) == Math.abs(col - list.get(i))){
+            if(list.get(i) == col || Math.abs(list.get(i) - col) == Math.abs(row - i)){
                 return false;
             }
         }
         return true;
+    }
+
+    static List<List<String>> convertLists(List<List<Integer>> lists, int n){
+        List<List<String>> slists = new LinkedList<>();
+        for(List<Integer> list : lists){
+            List<String> slist = new LinkedList<String>();
+            for(Integer i : list){
+                StringBuilder sb = new StringBuilder();
+                for(int index = 0; index < n; index++){
+                    if(index != i){
+                        sb.append(".");
+                    }else{
+                        sb.append("Q");
+                    }
+                }
+                slist.add(sb.toString());
+            }
+            slists.add(slist);
+        }
+        return slists;
     }
 
     static void printAsMatrix(List<Integer> list){

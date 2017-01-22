@@ -1,12 +1,14 @@
 package com.xun.java.practing.careerup.RotateArray.src;
 
+import java.util.Arrays;
+
 /**
  * Created by cuixun on 3/23/15.
  */
 public class RotateArray {
     public static void main(String[]args){
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        rotate(array,17);
+        rotate(array, 17);
     }
 
     /**

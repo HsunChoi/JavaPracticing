@@ -1,5 +1,7 @@
 package com.xun.java.practing.careerup.Shuffle.src;
 
+import com.xun.java.practing.leetcode.Xun;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,24 +19,23 @@ public class ShuffleMethods {
         System.out.println();
         Random r = new Random();
         for(int i = 0; i < 10; i++){
-            list.add(r.nextInt(10));
+            list.add(i);
         }
         /**
          * shuffle a list
          */
-        print(list);
-        System.out.println();
+        Xun.printInteger(list);
         shuffle(list);
-        print(list);
+        Xun.printInteger(list);
     }
 
     public static void shuffle(int[] a){
         int index;
         Random r = new Random();
         /**
-         *We 10 times the length of the size; at least twice the size
+         *We 3 times the length of the size; at least twice the size
          */
-        for(int i= 0; i < 50; i++){
+        for(int i= 0; i < 20; i++){
             index = r.nextInt(a.length);
             int tmp = a[index];
             a[index] = a[0];
@@ -58,9 +59,5 @@ public class ShuffleMethods {
         }
     }
 
-    public static void print(ArrayList<Integer> list){
-        for(int i = 0; i < list.size(); i++){
-            System.out.print(list.get(i) + " ");
-        }
-    }
+
 }
